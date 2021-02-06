@@ -137,6 +137,15 @@ define Device/elecom_wrc-2533gent
 endef
 TARGET_DEVICES += elecom_wrc-2533gent
 
+define Device/iodata_wn-tx4266gr
+  DEVICE_VENDOR := I-O DATA
+  DEVICE_MODEL := WN-TX4266GR
+  DEVICE_DTS := mt7622-iodata-wn-tx4266gr
+  DEVICE_DTS_DIR := ../dts
+  DEVICE_PACKAGES := kmod-sdhci-mtk
+endef
+TARGET_DEVICES += iodata_wn-tx4266gr
+
 define Device/linksys_e8450
   DEVICE_VENDOR := Linksys
   DEVICE_MODEL := E8450

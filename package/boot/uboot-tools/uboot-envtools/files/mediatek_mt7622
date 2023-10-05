@@ -38,6 +38,7 @@ linksys,e8450-ubi)
 buffalo,wsr-2533dhp2)
 	ubootenv_add_uci_config "/dev/mtd3" "0x0" "0x1000" "0x20000"
 	;;
+iodata,wn-tx4266gr|\
 ruijie,rg-ew3200gx-pro)
 	ubootenv_add_uci_config "/dev/mtd3" "0x0" "0x20000" "0x20000"
 	;;

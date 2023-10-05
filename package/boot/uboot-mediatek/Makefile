@@ -91,6 +91,17 @@ define U-Boot/mt7622_rfb1
   BUILD_SUBTARGET:=mt7622
 endef
 
+define U-Boot/mt7622_iodata_wn-tx4266gr
+  NAME:=I-O DATA WN-TX4266GR
+  UBOOT_CONFIG:=mt7622_iodata_wn-tx4266gr
+  BUILD_DEVICES:=iodata_wn-tx4266gr
+  BUILD_SUBTARGET:=mt7622
+  UBOOT_IMAGE:=u-boot.fip
+  BL2_BOOTDEV:=sdmmc
+  BL2_DDRBLOB:=1
+  DEPENDS:=+trusted-firmware-a-mt7622-sdmmc-1ddr
+endef
+
 define U-Boot/mt7622_linksys_e8450
   NAME:=Linksys E8450
   UBOOT_CONFIG:=mt7622_linksys_e8450
@@ -1094,6 +1105,7 @@ UBOOT_TARGETS := \
 	mt7622_bananapi_bpi-r64-emmc \
 	mt7622_bananapi_bpi-r64-sdmmc \
 	mt7622_bananapi_bpi-r64-snand \
+	mt7622_iodata_wn-tx4266gr \
 	mt7622_linksys_e8450 \
 	mt7622_rfb1 \
 	mt7622_ubnt_unifi-6-lr-v1 \

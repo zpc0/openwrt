@@ -248,6 +248,29 @@ define Device/elecom_wrc-x3200gst3
 endef
 TARGET_DEVICES += elecom_wrc-x3200gst3
 
+define Device/iodata_wn-tx4266gr
+  DEVICE_VENDOR := I-O DATA
+  DEVICE_MODEL := WN-TX4266GR
+  DEVICE_DTS := mt7622-iodata-wn-tx4266gr
+  DEVICE_DTS_DIR := ../dts
+  KERNEL := kernel-bin | gzip
+  KERNEL_INITRAMFS := kernel-bin | lzma |\
+	fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb with-initrd | pad-to 128k
+  KERNEL_INITRAMFS_SUFFIX := -recovery.itb
+  ARTIFACTS := sdcard.img.gz
+  ARTIFACT/sdcard.img.gz := mt7622-gpt sdmmc |\
+			pad-to 512k | bl2 sdmmc-1ddr |\
+			pad-to 2048k | bl31-uboot iodata_wn-tx4266gr |\
+			pad-to 6144k | append-image-stage initramfs-recovery.itb |\
+			pad-to 46080k | append-image squashfs-sysupgrade.itb | gzip
+  IMAGES := sysupgrade.itb
+  IMAGE/sysupgrade.itb := append-kernel |\
+	fit gzip $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb external-static-with-rootfs |\
+	append-metadata
+  DEVICE_PACKAGES := kmod-mt7615e
+endef
+TARGET_DEVICES += iodata_wn-tx4266gr
+
 define Device/linksys_e8450
   DEVICE_VENDOR := Linksys
   DEVICE_MODEL := E8450

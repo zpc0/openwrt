@@ -47,6 +47,7 @@ platform_do_upgrade() {
 	dlink,eagle-pro-ai-m32-a1|\
 	dlink,eagle-pro-ai-r32-a1|\
 	elecom,wrc-x3200gst3|\
+	iodata,wn-tx4266gr|\
 	mediatek,mt7622-rfb1-ubi|\
 	netgear,wax206|\
 	totolink,a8000ru)
@@ -82,6 +83,7 @@ platform_check_image() {
 	dlink,eagle-pro-ai-m32-a1|\
 	dlink,eagle-pro-ai-r32-a1|\
 	elecom,wrc-x3200gst3|\
+	iodata,wn-tx4266gr|\
 	mediatek,mt7622-rfb1-ubi|\
 	netgear,wax206|\
 	totolink,a8000ru)

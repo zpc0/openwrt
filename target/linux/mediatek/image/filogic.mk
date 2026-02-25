@@ -2781,6 +2781,19 @@ define Device/tplink_be450
 endef
 TARGET_DEVICES += tplink_be450
 
+define Device/tplink_be805-v1.20
+  DEVICE_VENDOR := TP-Link
+  DEVICE_MODEL := BE805 v1.20
+  DEVICE_DTS := mt7988a-tplink-be805-v1.20
+  DEVICE_DTS_DIR := ../dts
+  KERNEL_IN_UBI := 1
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  UBINIZE_OPTS := -E 5
+  DEVICE_PACKAGES := phy-rt8261n mt7988-wo-firmware
+endef
+TARGET_DEVICES += tplink_be805-v1.20
+
 define Device/tplink_eap683-lr
   DEVICE_VENDOR := TP-Link
   DEVICE_MODEL := EAP683-LR
